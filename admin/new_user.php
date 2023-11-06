@@ -1,10 +1,11 @@
 <?php
-require_once('jupiter.php');
+// require_once('jupiter.php');
+require_once('../process_php/europe.php');
 
 
 // Assurez-vous d'avoir une connexion PDO à MySQL établie ici.
 try {
-    $pdo = new PDO("mysql:host=your_host;dbname=your_database;charset=utf8", "your_username", "your_password");
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", "$username", "$password");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erreur de connexion à la base de données : " . $e->getMessage());

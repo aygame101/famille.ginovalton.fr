@@ -5,9 +5,9 @@
 </head>
 <body>
     <h1>Création d'utilisateur</h1>
-    <form action="process.php" method="post">
+    <form action="new_user.php" method="post">
         <label for="user">Nom d'utilisateur :</label>
-        <input type="text" name="user" required><br>
+        <input type="text" name="identifiant" required><br>
 
         <label for="password">Mot de passe :</label>
         <input type="password" name="password" required><br>
