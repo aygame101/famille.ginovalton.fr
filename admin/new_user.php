@@ -1,4 +1,7 @@
 <?php
+require_once('jupiter.php');
+
+
 // Assurez-vous d'avoir une connexion PDO à MySQL établie ici.
 try {
     $pdo = new PDO("mysql:host=your_host;dbname=your_database;charset=utf8", "your_username", "your_password");
