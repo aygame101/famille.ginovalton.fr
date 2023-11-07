@@ -4,7 +4,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
     // Si l'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
-    header("Location: connexion.php");
+    header("Location: process_php/connexion.php");
     exit;
 }
 ?>
@@ -21,7 +21,7 @@ if (!isset($_SESSION['user_id'])) {
     <h1>Accueil</h1>
     <p>connected</p>
 
-    <form action="deconnexion.php" method="post">
+    <form action="process_php/deconnexion.php" method="post">
         <input type="submit" value="Déconnexion" id="deco_btn">
     </form>
 </body>

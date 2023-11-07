@@ -2,7 +2,7 @@
 // Démarrez la session pour gérer l'authentification
 session_start();
 
-require_once('process_php/europe.php');
+require_once('europe.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Effectuez ici la vérification des informations de connexion avec la base de données.
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($hashedPassword === $user['password']) {
                 // Informations de connexion valides
                 $_SESSION['user_id'] = $user['id']; // Vous pouvez stocker l'ID de l'utilisateur dans la session
-                header("Location: index.php");
+                header("Location: ../index.php");
                 exit;
             } else {
                 $message = "Identifiant ou mot de passe incorrect.";
