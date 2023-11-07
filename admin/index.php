@@ -1,3 +1,31 @@
+<?php
+
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['connected'])) {
+    // Rediriger vers la page de connexion
+    header('Location: connexion.php');
+    exit();
+}
+
+// Déconnecter automatiquement après 5 minutes d'inactivité
+// $SESSION['$timeout'] = 300; // 5 minutes
+
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $_SESSION['$timeout'])) {
+    // Détruire toutes les variables de session et déconnecter l'utilisateur
+    session_unset();
+    session_destroy();
+
+    // Rediriger vers la page de connexion
+    header('Location: connexion.php');
+    exit();
+}
+header("Content-Type: text/html;charset=UTF-8");
+// Mettre à jour le timestamp de dernière activité
+$_SESSION['last_activity'] = time();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
