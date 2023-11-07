@@ -42,5 +42,9 @@ $_SESSION['last_activity'] = time();
 
         <input type="submit" value="Créer l'utilisateur">
     </form>
+
+    <form action="deconnexion.php" method="post">
+        <input type="submit" value="Déconnexion" id="deco_btn">
+    </form>
 </body>
 </html>

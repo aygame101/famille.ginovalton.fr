@@ -20,5 +20,9 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <h1>Accueil</h1>
     <p>connected</p>
+
+    <form action="deconnexion.php" method="post">
+        <input type="submit" value="Déconnexion" id="deco_btn">
+    </form>
 </body>
 </html>
