@@ -20,9 +20,20 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <h1>Accueil</h1>
     <p>connected</p>
+    <form action="process_php/up_picture.php" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="photo">Upload your photo:</label>
+            <input type="file" name="photo" id="photo" accept=".png, .jpeg, .jpg, .heic" required>
+        </div>
+        <div>
+            <button type="submit">Upload Photo</button>
+        </div>
+    </form>
 
     <form action="process_php/deconnexion.php" method="post">
         <input type="submit" value="Déconnexion" id="deco_btn">
     </form>
 </body>
 </html>
+
+
