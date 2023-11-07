@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Génération d'un sel aléatoire
     $salt = bin2hex(random_bytes(16)); // Longueur recommandée : au moins 16 octets (128 bits)
 
-    // Hashage sécurisé du mot de passe avec bcrypt
+    // Hashage sécurisé du mot de passe
     $hashedPassword = hash('sha256', $password . $salt);
 
     // Date de création actuelle
