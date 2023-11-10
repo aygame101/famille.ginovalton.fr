@@ -36,7 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
     if (in_array($fileExtension, $allowedfileExtensions)) {
         $newFileName = generateNewFilename($fileName);
         $uploadFileDir = '../img_import/'; // Assurez-vous que ce dossier existe et est accessible en écriture
+        $pre_uploadFileDir = str_replace('../', '', $uploadFileDir);
         $dest_path = $uploadFileDir . $newFileName;
+        $bdd_path = $pre_uploadFileDir . $newFileName;
 
         if(move_uploaded_file($fileTmpPath, $dest_path)) {
             echo 'File is successfully uploaded.';
@@ -59,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
             $sql = "INSERT INTO photos (chemin, message, user_id, date_upload) VALUES (?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
             try {
-                $stmt->execute([$dest_path, $message, $user_id, $creationDate]);
+                $stmt->execute([$bdd_path, $message, $user_id, $creationDate]);
                 echo "Données ajouté avec succès.";
                 header('Location: ../index.php');
             } catch (PDOException $e) {
