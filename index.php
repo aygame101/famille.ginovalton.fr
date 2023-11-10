@@ -40,10 +40,10 @@ if (!isset($_SESSION['user_id'])) {
     <?php
     // Récupérez les photos et les informations associées depuis la base de données
     $sql = "SELECT * FROM photos
-            INNER JOIN users ON photos.user = users.id"; // Vous pouvez ajuster cette requête selon vos besoins
+    INNER JOIN users ON photos.user_id = users.id"; // Vous pouvez ajuster cette requête selon vos besoins
 
     echo $sql;
-    
+
     $stmt = $pdo->query($sql);
 
     if ($stmt->rowCount() > 0) {
@@ -64,8 +64,6 @@ if (!isset($_SESSION['user_id'])) {
     } else {
         echo '<h2>Aucune photo n\'a été postée.</h2>';
     }
-
-    // ... (reste du code HTML)
     ?>
 
 
