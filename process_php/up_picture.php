@@ -8,6 +8,8 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+include 'europe.php'; 
+
 // Fonction pour ajouter un suffixe unique de 8 caractères aléatoires au nom de fichier original
 function generateNewFilename($originalFileName) {
     // Séparer le nom de fichier de son extension
@@ -40,6 +42,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
             echo 'File is successfully uploaded.';
             $user_ied = $_SESSION['user_id'];
             echo "$user_ied";
+
+            $message = $_POST['message'] ?? '';
+            $user_id = $_SESSION['user_id'] ?? '0';
+
+            echo "Message: " . $message . "<br>";
+            echo "User ID: " . $user_id . "<br>";
+
+
+            // Insertion des informations dans la base de données
+            $sql = "INSERT INTO photos (chemin, message, user) VALUES (:chemin, :message, :user)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                ':chemin' => $dest_path,
+                ':message' => $message,
+                ':user' => $user_id
+            ]);
+
+
         } else {
             echo 'There was an error moving the file to upload directory. Please make sure the upload directory is writable.';
         }

@@ -24,6 +24,8 @@ if (!isset($_SESSION['user_id'])) {
         <div>
             <label for="photo">Upload your photo:</label>
             <input type="file" name="photo" id="photo" accept=".png, .jpeg, .jpg, .heic" required>
+            <label for="message">Message:</label>
+            <input type="text" name="message" id="message" required>
         </div>
         <div>
             <button type="submit">Upload Photo</button>
