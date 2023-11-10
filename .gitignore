@@ -2,7 +2,7 @@ admin/sun.php
 process_php/europe.php
 
 # Images dans img_import
-
+img_import/*
 
 # Fichier Mac
 .DS_Store
