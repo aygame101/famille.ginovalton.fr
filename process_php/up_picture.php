@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
             try {
                 $stmt->execute([$bdd_path, $message, $user_id, $creationDate]);
                 echo "Données ajouté avec succès.";
-                header('Location: ../index.php');
+                header('Location: up_done.php');
             } catch (PDOException $e) {
                 echo "Erreur lors de la création de l'utilisateur : " . $e->getMessage();
             }
