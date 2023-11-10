@@ -42,3 +42,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <form action="index.php" method="post">
+        <input type="submit" value="Retour à l'accueil" id="deco_btn">
+    </form>
+    
+</body>
+</html>

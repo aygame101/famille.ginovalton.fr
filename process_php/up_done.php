@@ -20,7 +20,7 @@ if (!isset($_SESSION['user_id'])) {
     <p>Photo envoyé avec succès !</p>
 
     <form action="../index.php" method="post">
-        <input type="submit" value="Retour à l'Accueil" id="deco_btn">
+        <input type="submit" value="Retour à l'accueil" id="deco_btn">
     </form>
     
 </body>
