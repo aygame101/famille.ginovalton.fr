@@ -63,11 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
             $stmt = $pdo->prepare($sql);
             try {
                 $stmt->execute([$dest_path, $message, $user_id]);
-                echo "Utilisateur créé avec succès.";
+                echo "Données ajouté avec succès.";
             } catch (PDOException $e) {
                 echo "Erreur lors de la création de l'utilisateur : " . $e->getMessage();
             }
-
+            header("Location: ../index.php");
 
         } else {
             echo 'There was an error moving the file to upload directory. Please make sure the upload directory is writable.';
