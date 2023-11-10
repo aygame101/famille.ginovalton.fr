@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
     $fileName = $_FILES['photo']['name'];
     $allowedfileExtensions = array('png', 'jpeg', 'jpg', 'heic');
 
-    // Obtenez l'extension du fichier
+    // Obtenez l'extension du fichier // A partir d'ici ça fonctionne pas
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
     if (in_array($fileExtension, $allowedfileExtensions)) {
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
                 ':message' => $message,
                 ':user' => $user_id
             ]);
-
+               
             echo 'File is successfully uploaded and data has been saved to the database.';
         } else {
             echo 'There was an error moving the file to upload directory. Please make sure the upload directory is writable.';
