@@ -35,28 +35,32 @@ if (!isset($_SESSION['user_id'])) {
         <input type="submit" value="Déconnexion" id="deco_btn">
     </form>
 
-    <h2>Photos Postées :</h2>
-
     <?php
     // Récupérez les photos et les informations associées depuis la base de données
     $sql = "SELECT * FROM photos
     INNER JOIN users ON photos.user_id = users.id"; // Vous pouvez ajuster cette requête selon vos besoins
 
-    echo $sql;
+    require_once('process_php/europe.php');
+
+    try {
+        $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8", "$db_username", "$db_password");
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die("Erreur de connexion à la base de données : " . $e->getMessage());
+    }
 
     $stmt = $pdo->query($sql);
 
     if ($stmt->rowCount() > 0) {
-        echo '<h2>Photos Postées</h2>';
+        echo '<h2>Photos Postées :</h2>';
         echo '<table>';
-        echo '<tr><th>ID</th><th>Photo</th><th>Message</th><th>Nom de l\'utilisateur</th></tr>';
+        echo '<tr><th>Photo</th><th>Message</th><th>Nom de l\'utilisateur</th></tr>';
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo '<tr>';
-            echo '<td>' . $row['id'] . '</td>';
             echo '<td><img src="' . $row['chemin'] . '" alt="Photo"></td>';
             echo '<td>' . $row['message'] . '</td>';
-            echo '<td>' . $row['nom_utilisateur'] . '</td>';
+            echo '<td>' . $row['identifiant'] . '</td>';
             echo '</tr>';
         }
 
