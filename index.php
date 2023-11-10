@@ -19,7 +19,6 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
     <h1>Accueil</h1>
-    <p>connected</p>
     <form action="process_php/up_picture.php" method="post" enctype="multipart/form-data">
         <div>
             <label for="photo">Upload your photo:</label>
@@ -35,6 +34,40 @@ if (!isset($_SESSION['user_id'])) {
     <form action="process_php/deconnexion.php" method="post">
         <input type="submit" value="Déconnexion" id="deco_btn">
     </form>
+
+    <h2>Photos Postées :</h2>
+
+    <?php
+    // Récupérez les photos et les informations associées depuis la base de données
+    $sql = "SELECT * FROM photos
+            INNER JOIN users ON photos.user = users.id"; // Vous pouvez ajuster cette requête selon vos besoins
+
+    echo $sql;
+    
+    $stmt = $pdo->query($sql);
+
+    if ($stmt->rowCount() > 0) {
+        echo '<h2>Photos Postées</h2>';
+        echo '<table>';
+        echo '<tr><th>ID</th><th>Photo</th><th>Message</th><th>Nom de l\'utilisateur</th></tr>';
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo '<tr>';
+            echo '<td>' . $row['id'] . '</td>';
+            echo '<td><img src="' . $row['chemin'] . '" alt="Photo"></td>';
+            echo '<td>' . $row['message'] . '</td>';
+            echo '<td>' . $row['nom_utilisateur'] . '</td>';
+            echo '</tr>';
+        }
+
+        echo '</table>';
+    } else {
+        echo '<h2>Aucune photo n\'a été postée.</h2>';
+    }
+
+    // ... (reste du code HTML)
+    ?>
+
 
 </body>
 </html>

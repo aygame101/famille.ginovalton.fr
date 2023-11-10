@@ -45,10 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
 
             $message = $_POST['message'] ?? '';
             $user_id = $_SESSION['user_id'] ?? '0';
-
-            echo "Message: " . $message . "<br>";
-            echo "User ID: " . $user_id . "<br>";
-            echo "Chemin: " . $dest_path . "<br>"; 
+            $creationDate = date('Y-m-d H:i:s');
 
 
             // Insertion des informations dans la base de données
@@ -59,15 +56,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
                 die("Erreur de connexion à la base de données : " . $e->getMessage());
             }
 
-            $sql = "INSERT INTO photos (chemin, message, user) VALUES (?, ?, ?)";
+            $sql = "INSERT INTO photos (chemin, message, user_id, date_upload) VALUES (?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
             try {
-                $stmt->execute([$dest_path, $message, $user_id]);
+                $stmt->execute([$dest_path, $message, $user_id, $creationDate]);
                 echo "Données ajouté avec succès.";
             } catch (PDOException $e) {
                 echo "Erreur lors de la création de l'utilisateur : " . $e->getMessage();
             }
-            header("Location: ../index.php");
+            
 
         } else {
             echo 'There was an error moving the file to upload directory. Please make sure the upload directory is writable.';

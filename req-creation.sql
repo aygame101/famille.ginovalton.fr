@@ -13,5 +13,6 @@ CREATE TABLE fm_gv_fr.photos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     chemin VARCHAR(255),
     message TEXT,
-    user INT
+    user_id INT,
+    date_upload DATETIME
 );
