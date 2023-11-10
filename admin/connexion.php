@@ -70,10 +70,9 @@ if ($_SESSION['login_attempts'] >= 5) {
 
     <link rel="stylesheet" href="../css/admin.css">
 
-    <title>Connexion</title>
 </head>
 <body onload="masquerMessageErreur()">
-    <h1 class="titre_conn">Connexion</h1>
+    <h1 class="titre_conn">Connexion Admin</h1>
     <?php if (isset($erreur)) { ?>
         <p id="error_conn"><?php echo $erreur; ?></p>
     <?php } ?>

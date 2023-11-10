@@ -63,7 +63,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Se connecter">
     </form>
 
-    
+    <footer>
+        <p class="footer_index_un"><a class="a_frst_line" href="../admin/index.php">Admin</a> - <a class="a_frst_line" href="https://github.com/aygame101/uwu.gv.fr/">Github</a></p>
+        <p class="footer_index">Created with <span style="color: #ff0000">&hearts;</span> by <a id="a_footer" href="https://ginovalton.fr">ginovalton.fr</a></p>
+        <p class="footer_index">Take care.</p>
+    </footer>
     
 </body>
 </html>

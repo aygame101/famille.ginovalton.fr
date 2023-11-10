@@ -35,6 +35,7 @@ if (!isset($_SESSION['user_id'])) {
     <form action="process_php/deconnexion.php" method="post">
         <input type="submit" value="Déconnexion" id="deco_btn">
     </form>
+
 </body>
 </html>
 
