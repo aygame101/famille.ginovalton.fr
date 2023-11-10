@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
 
-    <p>Photos envoyé avec succès !</p>
+    <p>Photo envoyé avec succès !</p>
 
     <form action="../index.php" method="post">
         <input type="submit" value="Retour à l'Accueil" id="deco_btn">
