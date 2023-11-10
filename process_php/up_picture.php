@@ -48,16 +48,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['photo'])) {
 
             echo "Message: " . $message . "<br>";
             echo "User ID: " . $user_id . "<br>";
+            echo "Chemin: " . $dest_path . "<br>"; 
 
 
             // Insertion des informations dans la base de données
-            $sql = "INSERT INTO photos (chemin, message, user) VALUES (:chemin, :message, :user)";
+            try {
+                $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8", "$db_username", "$db_password");
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                die("Erreur de connexion à la base de données : " . $e->getMessage());
+            }
+
+            $sql = "INSERT INTO photos (chemin, message, user) VALUES (?, ?, ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([
-                ':chemin' => $dest_path,
-                ':message' => $message,
-                ':user' => $user_id
-            ]);
+            try {
+                $stmt->execute([$dest_path, $message, $user_id]);
+                echo "Utilisateur créé avec succès.";
+            } catch (PDOException $e) {
+                echo "Erreur lors de la création de l'utilisateur : " . $e->getMessage();
+            }
 
 
         } else {

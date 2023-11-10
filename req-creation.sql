@@ -11,8 +11,7 @@ CREATE TABLE fm_gv_fr.users (
 
 CREATE TABLE fm_gv_fr.photos (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    chemin VARCHAR(255) NOT NULL,
+    chemin VARCHAR(255),
     message TEXT,
-    user INT,
-    FOREIGN KEY (user) REFERENCES users(id)  -- Supposons qu'il y a une table 'users' avec une colonne 'id'
-); -- ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    user INT
+);
