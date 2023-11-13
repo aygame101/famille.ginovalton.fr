@@ -92,6 +92,13 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </form>
                         <?php endif; ?>
                     </td>
+                    <!-- Reset du mot de passe -->
+                    <td> 
+                        <form action="reset_mdp.php" method="post">
+                            <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
+                            <input type="submit" value="Reset">
+                        </form>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

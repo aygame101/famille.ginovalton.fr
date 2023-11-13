@@ -50,7 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
     <form action="index.php" method="post">
         <input type="submit" value="Retour à l'accueil" id="deco_btn">
     </form>
