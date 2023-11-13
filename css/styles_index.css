@@ -1,0 +1,21 @@
+/* Footer Fond blanc */
+.footer_index {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+a {
+    color: #dd2d4a;
+    font-family: 'Roboto', sans-serif;
+}
+
+.a_frst_line {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.footer_index_un {
+    margin-bottom: 20px;
+    text-align: center;
+}
