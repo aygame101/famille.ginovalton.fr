@@ -1,9 +1,14 @@
 # famille.gv.fr
 Site de partage de photos avec un petit message entre la famille pour ensuite les envoyer aux grands-parents en papier. La date serait ajouté automatiquement au moment de l'ajout. Donc il y aurait un compte par utilisateur (frères et soeurs, cousins/cousines.) pour que chacun puisse participer. Dans le but à la fin de l'envoyer par la poste chaque mois (par exemple, peut être bi-mensuel) aux grand parents.
 
+### Done :
+- Interface Admin pour créer des comptes utilisateurs.
+- Interface accueil, avec page de connexion si pas connecté. Sur la page d'accueil on aurait un bouton pour upload et en dessous on verrait ce qui a été upload par qui et quand. 
+
 ### To do :
-- Interface Admin où on pourrait gérer les utilisateurs (créer, supprimer, ...). Et exporter les posts des utilisateurs (qui seraient archivé).
-- Interface accueil, avec page de connexion si pas connecté. Sur la page d'accueil on aurait un bouton pour upload et en dessous on verrait ce qui a été upload par qui et quand. Et en bas de la page d'accueil un bouton pour voir les autres mois archivé.
+- Page admin : exporter les posts des utilisateurs des mois qui seraient archivé.
+- Et en bas de la page d'accueil un bouton pour voir les autres mois archivé.
+- CSS, là y a 0 CSS c'est pas beau.
 
 ### Pour aller plus loin :
 - Script qui exporte tout au format PDF sous forme de journal.
