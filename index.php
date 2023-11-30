@@ -14,16 +14,18 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="css/styles_index.css" rel="stylesheet">
 
     <title>Accueil</title>
 </head>
 <body>
-    <h1>Accueil</h1>
+    <h1>Bienvenue</h1>
     <form action="process_php/up_picture.php" method="post" enctype="multipart/form-data">
-        <div>
+        <div class="upload-picture">
+            <h2>Postez une photo :</h2>
             <label for="photo">Photo :</label>
             <input type="file" name="photo" id="photo" accept=".png, .jpeg, .jpg" required>
-
+            <br>
             <label for="message">Message :</label>
             <input type="text" name="message" id="message" required>
         </div>
@@ -53,7 +55,7 @@ if (!isset($_SESSION['user_id'])) {
     $stmt = $pdo->query($sql);
 
     if ($stmt->rowCount() > 0) {
-        echo '<h2>Photos Postées :</h2>';
+        echo '<h2>Photos précédemment postées :</h2>';
         echo '<table>';
         echo '<tr><th>Photo</th><th>Message</th><th>Nom de l\'utilisateur</th></tr>';
 
