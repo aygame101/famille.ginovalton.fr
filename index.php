@@ -17,6 +17,7 @@ if (!isset($_SESSION['user_id'])) {
     <link type="text/css" href="css/styles_index.css" rel="stylesheet">
 
     <title>Accueil</title>
+
 </head>
 <body>
     <h1>Bienvenue</h1>
@@ -28,8 +29,7 @@ if (!isset($_SESSION['user_id'])) {
             <br>
             <label for="message">Message :</label>
             <input type="text" name="message" id="message" required>
-        </div>
-        <div>
+            <br>
             <button type="submit">Upload Photo</button>
         </div>
     </form>
@@ -72,7 +72,6 @@ if (!isset($_SESSION['user_id'])) {
         echo '<h2>Aucune photo n\'a été postée.</h2>';
     }
     ?>
-
 
 </body>
 </html>

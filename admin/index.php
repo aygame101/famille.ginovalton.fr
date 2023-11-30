@@ -45,7 +45,11 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Espace Admin</title>
+    <title>Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
     <h1>Création d'utilisateur</h1>
@@ -62,6 +66,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <form action="deconnexion.php" method="post">
         <input type="submit" value="Déconnexion" id="deco_btn">
     </form>
+
+    
 
     <h2>Gérer les utilisateurs</h2>
     <table>
